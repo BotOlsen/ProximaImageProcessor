@@ -1,12 +1,15 @@
 # Proxima Image Processor
 
+Apply effects or transforms to an image using a CLI tool. 
+
 ## Table of contents
 * [About](#about)
-* [Setup](#setup)
 * [Warning](#warning)
 
 ## About
 
-## Setup
+It is my goal to build an astronomical interferomter. The first step in building that interferomter is to learn how to process images. This project is just that, a way for me to get into image processing at  abasic level and learning about various file formats. While the VSA project will have signal processing instead of image processing, I believe this is a great place to start. 
 
 ## Warning
+
+The file you input will be modified accordingly. It does not currently make a new file and rewrites your file. Also, I have not tested this with file sizes larger than BMP files with 4k resolution. Undesired outcomes may arise. 
