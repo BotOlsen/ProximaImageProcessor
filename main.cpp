@@ -5,7 +5,8 @@ const int BYTES_PER_PIXEL = 3; /// red, green, & blue
 const int FILE_HEADER_SIZE = 14;
 const int INFO_HEADER_SIZE = 40;
 
-void  getUserInput(int &);
+void  getEffectUserInput(int &);
+void getColorScaleInput(int &, int &, int &);
 
 int main (int argc, char *argv[])
 {
@@ -17,56 +18,64 @@ int main (int argc, char *argv[])
     int userInput = -1;
 
     char * outputFileName = argv[1];
+    //system(outputFileName);
 
-    getUserInput(userInput);
-     
+    getEffectUserInput(userInput);
+    
     BMP* bmp = new BMP(outputFileName);
+        
     switch (userInput)
     {
     case 0:
-        bmp->blueScale();
+        {
+            int r = -1;
+            int g = -1;
+            int b = -1;
+            getColorScaleInput(r, g, b);
+            bmp->colorScale(r, g, b);
+        }
         break;
     case 1:
-        bmp->redScale();
+        bmp->greyScale();
         break;
     case 2:
-        bmp->greenScale();
-        break;
-    case 3:
-        bmp->greyScale();
-        break; 
-    case 4:
-        bmp->purpleScale();
-        break;
-    case 5:
-        bmp->turquoiseScale();
-        break;
-    case 6:
-        bmp->yellowScale();
-        break;
-    case 7:
         bmp->invertColor();
-        break;         
+        break;
     default:
         break;
     }
+    
     bmp->outputImageToFile(outputFileName);
+
+    // system("taskkill /F /IM Microsoft.Photos.exe");
+    // system(outputFileName);
 
 }
 
-void getUserInput(int &number){
+void getEffectUserInput(int &number){
     std::cout << "Please input the number corresponding to the desired effect you want to have on your image:" << std::endl 
-            << "0: Blue filter" << std::endl
-            << "1: Red filter" << std::endl
-            << "2: Green filter" << std::endl
-            << "3: Grey filter" << std::endl
-            << "4: Purple filter" << std::endl
-            << "5: Turquoise filter" << std::endl
-            << "6: Yello filter" << std::endl
-            << "7: Inverted filter" << std::endl;
+            << "0: Color filter" << std::endl
+            << "1: Grey scale" << std::endl
+            << "2: Inverted filter" << std::endl;
 
     do{
         std::cin >> number;
-    } while(number < 0 || number > 7);
+    } while(number < 0 || number > 2);
 }
 
+void getColorScaleInput(int &r, int &g, int &b){
+        std::cout << "\nThe value you enter for R, G, and B will be used to scale it. Enter a number 0 <= x <= 255" << std::endl;
+        std::cout << "Example: R: 0, G: 0, B: 255 will remove all green and red. Essentially a blue filter" << std::endl;
+        std::cout << "R:";
+        do{
+            std::cin >> r;
+        } while (r < 0 || r > 255);
+        std::cout << "G:";
+        do{
+            std::cin >> g;
+        } while (g < 0 || g > 255);
+        std::cout << "B:";
+        do{
+            std::cin >> b;
+        } while (b < 0 || b > 255);
+}

@@ -50,71 +50,19 @@ void BMP::outputImageToFile(char* fileName){
     fclose(imageFile);
 }
 
-void BMP::redScale(){
+void BMP::colorScale(int r, int g, int b){
     if(pixelArray == NULL)
         return;
 
     for (int i = 0; i < height; i++) { 
         for (int j = 0; j < width; j++) {
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1) = 0;
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j) = 0;
-        }
-    }
-}
-
-void BMP::greenScale(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2) = 0;
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j) = 0;
-        }
-    }
-}
-
-void BMP::blueScale(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2) = 0;
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1) = 0;
-        }
-    }
-}
-
-void BMP::purpleScale(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1) = 0;
-        }
-    }
-}
-
-void BMP::turquoiseScale(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2) = 0;
-        }
-    }
-}
-
-void BMP::yellowScale(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j) = 0;
+            int red = (int) *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2);
+            int green = (int) *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1);
+            int blue = (int) *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j);
+            
+            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2) = (unsigned char) ((red * r)/255);
+            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1) = (unsigned char) ((green * g)/255);
+            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j) = (unsigned char) ((blue * b)/255);
         }
     }
 }
@@ -149,42 +97,6 @@ void BMP::invertColor(){
             *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2) = (unsigned char) (255 - red);
             *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1) = (unsigned char) (255 - green);
             *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j) = (unsigned char) (255 - blue);
-        }
-    }
-}
-
-void BMP::invertedRed(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            int red = (int) *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2);
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 2) = (unsigned char) (255 - red);
-        }
-    }
-}
-
-void BMP::invertedBlue(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            int blue = (int) *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j);
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j) = (unsigned char) (255 - blue);
-        }
-    }
-}
-
-void BMP::invertedGreen(){
-    if(pixelArray == NULL)
-        return;
-
-    for (int i = 0; i < height; i++) { 
-        for (int j = 0; j < width; j++) {
-            int green = (int) *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1);
-            *(pixelArray + i*(width * BYTES_PER_PIXEL) + 3*j + 1) = (unsigned char) (255 - green);
         }
     }
 }

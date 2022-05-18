@@ -34,16 +34,8 @@ class BMP {
         BMP(unsigned char *, int, int);
         BMP(char*);
         void outputImageToFile(char *);
-        void redScale();
-        void blueScale();
-        void greenScale();
-        void purpleScale();
-        void turquoiseScale();
-        void yellowScale();
+        void colorScale(int, int, int);
         void greyScale();
         void invertColor();
-        void invertedRed();
-        void invertedGreen();
-        void invertedBlue();
 };
 #endif
