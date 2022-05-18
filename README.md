@@ -2,6 +2,8 @@
 
 Apply effects or transforms to an image using a CLI tool. 
 
+![Image of antenna before inverting colors](https://github.com/BotOlsen/botolsen.github.io/blob/main/images/antenna)?raw=true)
+
 ## Table of contents
 * [About](#about)
 * [Warning](#warning)
