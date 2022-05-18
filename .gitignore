@@ -35,3 +35,9 @@
 settings.json
 c_cpp_properties.json
 settings.json
+
+#ImageFiles
+
+*.bmp
+*.jpg
+*.jpeg
