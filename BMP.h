@@ -24,6 +24,7 @@ class BMP {
         int paddingSize;
         int stride;
         int byteWidth;
+        bool fileReady = false;
 
         void parseFile();
         unsigned char* createDIBHeader();

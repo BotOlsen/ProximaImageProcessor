@@ -35,6 +35,10 @@ BMP::BMP(char* _inputFileName){
 }
 
 void BMP::outputImageToFile(char* fileName){
+    if(!fileReady){
+        std::cout << "File not ready for output. Result of unsuccesful parse prior to output";
+        return;
+    }
     FILE* imageFile = fopen(fileName, "wb");
 
     fwrite(fileHeader, 1, FILE_HEADER_SIZE, imageFile);
@@ -267,5 +271,6 @@ void BMP::parseFile(){
         fread(padding, 1, paddingSize, imageFile);
     }
 
+    fileReady = true;
     fclose(imageFile);
 }
