@@ -2,7 +2,8 @@
 
 Apply effects or transforms to an image using a CLI tool. 
 
-![Image of antenna before inverting colors](https://github.com/BotOlsen/botolsen.github.io/blob/main/images/antenna)?raw=true)
+![Image of antenna before inverting colors](https://github.com/BotOlsen/ProximaImageProcessor/blob/master/images/antennapreprocess.jpg)
+![Image of antenna after inverting colors](https://github.com/BotOlsen/ProximaImageProcessor/blob/master/images/antennapreprocess.jpg)
 
 ## Table of contents
 * [About](#about)
