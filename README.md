@@ -4,8 +4,7 @@ Apply effects or transforms to an image using a CLI tool.
 
 Pre-processed image        |  Post-processed image
 :-------------------------:|:-------------------------:
-<img src="images/antennapreprocess.jpg" alt="Pre-processed image" width="294" heigth="250"/>  |  
-<img src="images/antennapostprocess.jpg" alt="Post-processed image" width="294" heigth="250"/>
+<img src="images/antennapreprocess.jpg" alt="Pre-processed image" width="294" heigth="250"/>  |  <img src="images/antennapostprocess.jpg" alt="Post-processed image" width="294" heigth="250"/>
 
 ## Table of contents
 * [About](#about)
